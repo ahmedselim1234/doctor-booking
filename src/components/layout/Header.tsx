@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Stethoscope, Menu, X, Languages } from 'lucide-react';
+import { Menu, X, Languages } from 'lucide-react';
 import { useLang } from '../../i18n/LangContext';
+import { Logo } from '../ui/Logo';
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -16,9 +17,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-[#E5E7EB] shadow-sm">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 text-[#1D9E75] font-bold text-xl">
-          <Stethoscope size={26} />
-          <span>{lang === 'ar' ? 'طبيبي' : 'Tabeebi'}</span>
+        <Link to="/">
+          <Logo />
         </Link>
 
         {/* Desktop nav */}
@@ -35,7 +35,6 @@ export function Header() {
             </Link>
           ))}
 
-          {/* Language toggle */}
           <button
             onClick={toggleLang}
             className="flex items-center gap-1.5 border border-[#E5E7EB] rounded-lg px-3 py-1.5 text-sm font-medium text-[#6B7280] hover:border-[#1D9E75] hover:text-[#1D9E75] transition-colors cursor-pointer"
